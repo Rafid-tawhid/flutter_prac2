@@ -8,26 +8,24 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: HomePage(),
+    );
+  }
+}
 
-        appBar: AppBar(title: Text("My AppBar"),
-        centerTitle: true,
-        leading: Icon(Icons.message),
-        actions: [
-          IconButton(icon: Icon(Icons.add_a_photo), onPressed:(){} )
-        ],),
-
-
-
-        body: Center(
-          child: Text("My first APP",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          height: MediaQuery.of(context).size.height / 5,
+          width: MediaQuery.of(context).size.height / 4,
+          color: Colors.blue,
         ),
       ),
     );
   }
 }
-
