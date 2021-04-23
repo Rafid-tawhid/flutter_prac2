@@ -11,32 +11,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: ListView(
-          children: <Widget>[
+        floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
+        body: Center(
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            overflow: Overflow.visible,
+            children: [
+              Container(
+                height: 200,
+                width: 200,
+                color: Colors.blue,
+              ),
+              Positioned(
+                bottom: -50,
+                  child: CircleAvatar(
 
-            ListTile(
-              title: Text("Rafid Tawhid"),
-              subtitle: Text(" I am a totally ajira public"),
-              leading: CircleAvatar(child: Icon(Icons.mediation),),
-              trailing: CircleAvatar(child: Icon(Icons.add_a_photo),),
+                radius: 50,
+                backgroundColor: Colors.amber,
 
-            ),
-            ListTile(
-              title: Text("Rafid Tawhid"),
-              subtitle: Text(" I am a totally ajira public"),
-              leading: CircleAvatar(child: Icon(Icons.mediation),),
-              trailing: CircleAvatar(child: Icon(Icons.add_a_photo),),
-
-            ),
-            ListTile(
-              title: Text("Rafid Tawhid"),
-              subtitle: Text(" I am a totally ajira public"),
-              leading: CircleAvatar(child: Icon(Icons.mediation),),
-              trailing: CircleAvatar(child: Icon(Icons.add_a_photo),),
-
-            ),
-
-          ],
+              ))
+            ],
+          ),
         ),
       )
     );
