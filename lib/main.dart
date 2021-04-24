@@ -3,41 +3,59 @@ import 'package:flutter/material.dart';
 import 'package:flutter_prac/page1.dart';
 import 'package:flutter_prac/page2.dart';
 import 'package:flutter_prac/page3.dart';
+import 'package:flutter_prac/page4.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
 
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  PageController pageController=PageController(
-    initialPage: 0
-  );
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: PageView(
-          // scrollDirection: Axis.vertical,
-          controller: pageController,
-          children: [
-            Page1(),
-            Page2(),
-            Page3(),
-          ],
-        ),
-      ),
+
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+
     );
   }
+}
+class HomePage extends StatefulWidget {
   @override
-  void dispose() {
-   pageController.dispose();
-    super.dispose();
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var current_index=0;
+  final pages=[
+    Page1(),
+    Page2(),
+    Page3(),
+    Page4()
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        bottomNavigationBar: BottomNavigationBar(currentIndex:current_index,items: [
+        BottomNavigationBarItem(backgroundColor: Colors.blue,
+        icon: Icon(Icons.message),title: Text("Message")),
+    BottomNavigationBarItem(icon: Icon(Icons.call),title: Text("Call")),
+    BottomNavigationBarItem(icon: Icon(Icons.mail),title: Text("Mail")),
+    BottomNavigationBarItem(icon: Icon(Icons.sms),title: Text("SMS")),
+    ],
+
+        onTap: (index){
+          setState(() {
+
+            current_index=index;
+          });
+        },
+        ),
+    body: pages[current_index]);
   }
 }
+
+
+
 
