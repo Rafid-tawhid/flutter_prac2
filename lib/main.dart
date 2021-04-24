@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(currentIndex:current_index,items: [
-        BottomNavigationBarItem(backgroundColor: Colors.blue,
+        BottomNavigationBarItem(backgroundColor: Colors.blueAccent,
         icon: Icon(Icons.message),title: Text("Message")),
     BottomNavigationBarItem(icon: Icon(Icons.call),title: Text("Call")),
     BottomNavigationBarItem(icon: Icon(Icons.mail),title: Text("Mail")),
