@@ -1,30 +1,43 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_prac/page1.dart';
+import 'package:flutter_prac/page2.dart';
+import 'package:flutter_prac/page3.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  PageController pageController=PageController(
+    initialPage: 0
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Center(
-            child: Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(50))
-              ),
-              child: (Container(
-
-                height: 200,
-                width: 200,
-
-              )),
-            ),
-          ),
-        ));
+      home: Scaffold(
+        body: PageView(
+          // scrollDirection: Axis.vertical,
+          controller: pageController,
+          children: [
+            Page1(),
+            Page2(),
+            Page3(),
+          ],
+        ),
+      ),
+    );
+  }
+  @override
+  void dispose() {
+   pageController.dispose();
+    super.dispose();
   }
 }
+
