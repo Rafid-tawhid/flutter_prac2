@@ -29,10 +29,10 @@ class MyWidget extends StatefulWidget {
 }
 class MyWidgetState extends State<MyWidget>
 {
-  String _txt="Helloo World";
-   changeText() {
+  int _counter=0;
+   increaseCounter() {
      setState(() {
-       _txt="Text Changing the State";
+       _counter++;
      });
    }
   @override
@@ -43,11 +43,11 @@ class MyWidgetState extends State<MyWidget>
         title: Text("This is AppBar"),
       ),
       body: Center(
-        child: Text(_txt),
+        child: Text("You have clicked $_counter times"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          changeText();
+          increaseCounter();
         },
         child: Icon(Icons.add),
       ),
